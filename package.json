@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "format": "prettier '**/*' -u -w",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "eslint": "7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
+    "prettier": "^2.5.1",
     "react-test-renderer": "17.0.2"
   },
   "jest": {
