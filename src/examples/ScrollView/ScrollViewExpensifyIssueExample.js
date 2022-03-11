@@ -10,7 +10,6 @@
 import * as React from 'react';
 
 import {
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -23,10 +22,8 @@ exports.title = 'Expensify issue';
 exports.documentationURL = 'https://reactnative.dev/docs/scrollview';
 exports.description = 'github.com/facebook/react-native/pull/33184';
 
-const examples = [];
-
-if (Platform.OS === 'ios') {
-  examples.push({
+exports.examples = [
+  {
     title: '<ScrollView> smooth bi-directional content loading\n',
     description:
       'The `maintainVisibleContentPosition` prop allows insertions to either end of the content ' +
@@ -144,10 +141,8 @@ if (Platform.OS === 'ios') {
       }
       return <AppendingList />;
     },
-  });
-}
-
-exports.examples = examples;
+  },
+];
 
 class Item extends React.PureComponent {
   render() {
