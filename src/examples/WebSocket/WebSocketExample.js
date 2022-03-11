@@ -34,7 +34,7 @@ const WS_STATES = [
 ];
 
 class Button extends React.Component {
-  render(): React.Element<any> {
+  render() {
     const label = <Text style={styles.buttonLabel}>{this.props.label}</Text>;
     if (this.props.disabled) {
       return (
@@ -50,7 +50,7 @@ class Button extends React.Component {
 }
 
 class Row extends React.Component {
-  render(): React.Element<any> {
+  render() {
     return (
       <View style={styles.row}>
         <Text>{this.props.label}</Text>
@@ -62,8 +62,8 @@ class Row extends React.Component {
 }
 
 class WebSocketImage extends React.Component {
-  ws: ?WebSocket = null;
-  state: {blob: ?Blob} = {blob: null};
+  ws = null;
+  state = {blob: null};
   componentDidMount() {
     let ws = (this.ws = new WebSocket(this.props.url));
     ws.binaryType = 'blob';
@@ -113,19 +113,8 @@ function showValue(value) {
   return value;
 }
 
-type State = {
-  url: string,
-  httpUrl: string,
-  fetchStatus: ?string,
-  socket: ?WebSocket,
-  socketState: ?number,
-  lastSocketEvent: ?string,
-  lastMessage: ?string | ?ArrayBuffer,
-  outgoingMessage: string,
-};
-
-class WebSocketExample extends React.Component<any, any, State> {
-  state: State = {
+class WebSocketExample extends React.Component {
+  state = {
     url: DEFAULT_WS_URL,
     httpUrl: DEFAULT_HTTP_URL,
     fetchStatus: null,
@@ -152,8 +141,8 @@ class WebSocketExample extends React.Component<any, any, State> {
     this.state.socket.close();
   };
 
-  _onSocketEvent = (event: MessageEvent) => {
-    const state: any = {
+  _onSocketEvent = event => {
+    const state = {
       socketState: event.target.readyState,
       lastSocketEvent: event.type,
     };
@@ -201,7 +190,7 @@ class WebSocketExample extends React.Component<any, any, State> {
     this.setState({outgoingMessage: ''});
   };
 
-  render(): React.Element<any> {
+  render() {
     const socketState = WS_STATES[this.state.socketState || -1];
     const canConnect =
       !this.state.socket || this.state.socket.readyState >= WebSocket.CLOSING;
@@ -350,7 +339,7 @@ exports.description = 'WebSocket API';
 exports.examples = [
   {
     title: 'Basic websocket',
-    render(): React.Element<typeof WebSocketExample> {
+    render() {
       return <WebSocketExample />;
     },
   },

@@ -131,6 +131,6 @@ exports.description =
 exports.examples = [
   {
     title: '<ScrollView> automaticallyAdjustsScrollIndicatorInsets Example',
-    render: (): React.Node => <ScrollViewIndicatorInsetsExample />,
+    render: () => <ScrollViewIndicatorInsetsExample />,
   },
 ];

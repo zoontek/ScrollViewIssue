@@ -23,11 +23,7 @@ const {
 
 const RNTesterBlock = require('../../components/RNTesterBlock');
 
-type Props = $ReadOnly<{|
-  url?: ?string,
-|}>;
-
-class OpenURLButton extends React.Component<Props> {
+class OpenURLButton extends React.Component {
   handleClick = () => {
     Linking.canOpenURL(this.props.url).then(supported => {
       if (supported) {
@@ -49,7 +45,7 @@ class OpenURLButton extends React.Component<Props> {
   }
 }
 
-class OpenSettingsExample extends React.Component<Props, any> {
+class OpenSettingsExample extends React.Component {
   openSettings() {
     Linking.openSettings();
   }
@@ -59,7 +55,7 @@ class OpenSettingsExample extends React.Component<Props, any> {
   }
 }
 
-class SendIntentButton extends React.Component<Props> {
+class SendIntentButton extends React.Component {
   handleIntent = async () => {
     try {
       await Linking.sendIntent(this.props.action, this.props.extras);
@@ -134,13 +130,13 @@ exports.description = 'Shows how to use Linking to open URLs.';
 exports.examples = [
   {
     title: 'Open external URLs',
-    render: function (): React.Element<typeof IntentAndroidExample> {
+    render: function () {
       return <IntentAndroidExample />;
     },
   },
   {
     title: 'Open settings app',
-    render: function (): React.Element<typeof LinkingChangesListenerExample> {
+    render: function () {
       return <OpenSettingsExample />;
     },
   },

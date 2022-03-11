@@ -218,21 +218,21 @@ exports.examples = [
     title: 'Alert with default Button',
     description:
       "It can be used to show some information to user that doesn't require an action.",
-    render(): React.Node {
+    render() {
       return <AlertWithDefaultButton />;
     },
   },
   {
     title: 'Alert with two Buttons',
     description: 'It can be used when an action is required from the user.',
-    render(): React.Node {
+    render() {
       return <AlertWithTwoButtons />;
     },
   },
   {
     title: 'Alert with three Buttons',
     description: 'It can be used when there are three possible actions',
-    render(): React.Node {
+    render() {
       return <AlertWithThreeButtons />;
     },
   },
@@ -240,7 +240,7 @@ exports.examples = [
     title: 'Alert with many Buttons',
     platform: 'ios',
     description: 'It can be used when more than three actions are required.',
-    render(): React.Node {
+    render() {
       return <AlertWithManyButtons />;
     },
   },
@@ -249,7 +249,7 @@ exports.examples = [
     platform: 'android',
     description:
       'By passing cancelable={false} prop to alerts on Android, they can be dismissed by tapping outside of the alert box.',
-    render(): React.Node {
+    render() {
       return <AlertWithCancelableTrue />;
     },
   },
@@ -258,7 +258,7 @@ exports.examples = [
     platform: 'ios',
     description:
       "Alert buttons can be styled. There are three button styles - 'default' | 'cancel' | 'destructive'.",
-    render(): React.Node {
+    render() {
       return <AlertWithStyles />;
     },
   },
