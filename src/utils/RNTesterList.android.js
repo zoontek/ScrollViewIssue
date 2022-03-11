@@ -57,16 +57,16 @@ const Components = [
     category: 'Basic',
     module: require('../examples/ScrollView/ScrollViewExample'),
   },
-  {
-    key: 'ScrollViewSimpleExample',
-    category: 'Basic',
-    module: require('../examples/ScrollView/ScrollViewSimpleExample'),
-  },
-  {
-    key: 'ScrollViewAnimatedExample',
-    category: 'Basic',
-    module: require('../examples/ScrollView/ScrollViewAnimatedExample'),
-  },
+  // {
+  //   key: 'ScrollViewSimpleExample',
+  //   category: 'Basic',
+  //   module: require('../examples/ScrollView/ScrollViewSimpleExample'),
+  // },
+  // {
+  //   key: 'ScrollViewAnimatedExample',
+  //   category: 'Basic',
+  //   module: require('../examples/ScrollView/ScrollViewAnimatedExample'),
+  // },
   {
     key: 'FlatListExampleIndex',
     module: require('../examples/FlatList/FlatListExampleIndex').default,
