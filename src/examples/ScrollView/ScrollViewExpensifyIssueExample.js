@@ -30,38 +30,42 @@ exports.examples = [
       'without causing the visible content to jump. Re-ordering is not supported.',
     render: function () {
       let itemCount = 12;
+
       class AppendingList extends React.Component {
         state = {
           items: [...Array(itemCount)].map((_, ii) => (
             <Item msg={`Item ${ii}`} />
           )),
         };
+
         render() {
           return (
             <View>
               <ScrollView
+                style={styles.scrollView}
                 automaticallyAdjustContentInsets={false}
                 maintainVisibleContentPosition={{
                   minIndexForVisible: 0,
                   autoscrollToTopThreshold: 0,
-                }}
-                style={styles.scrollView}>
+                }}>
                 {this.state.items.map(item =>
                   React.cloneElement(item, {key: item.props.msg}),
                 )}
               </ScrollView>
-              <ScrollView
+
+              {/* <ScrollView
                 horizontal={true}
+                style={[styles.scrollView, styles.horizontalScrollView]}
                 automaticallyAdjustContentInsets={false}
                 maintainVisibleContentPosition={{
                   minIndexForVisible: 0,
                   autoscrollToTopThreshold: 0,
-                }}
-                style={[styles.scrollView, styles.horizontalScrollView]}>
+                }}>
                 {this.state.items.map(item =>
                   React.cloneElement(item, {key: item.props.msg, style: null}),
                 )}
-              </ScrollView>
+              </ScrollView> */}
+
               <View style={styles.row}>
                 <Button
                   label="Add to top"
@@ -79,6 +83,7 @@ exports.examples = [
                     });
                   }}
                 />
+
                 <Button
                   label="Remove top"
                   onPress={() => {
@@ -87,6 +92,7 @@ exports.examples = [
                     }));
                   }}
                 />
+
                 <Button
                   label="Change height top"
                   onPress={() => {
@@ -100,6 +106,7 @@ exports.examples = [
                   }}
                 />
               </View>
+
               <View style={styles.row}>
                 <Button
                   label="Add to end"
@@ -111,6 +118,7 @@ exports.examples = [
                     }));
                   }}
                 />
+
                 <Button
                   label="Remove end"
                   onPress={() => {
@@ -119,18 +127,19 @@ exports.examples = [
                     }));
                   }}
                 />
+
                 <Button
                   label="Change height end"
                   onPress={() => {
                     this.setState(state => ({
-                      items: state.items.slice(0, -1).concat(
-                        React.cloneElement(
-                          state.items[state.items.length - 1],
-                          {
-                            style: {paddingBottom: Math.random() * 40},
-                          },
+                      items: state.items
+                        .slice(0, -1)
+                        .concat(
+                          React.cloneElement(
+                            state.items[state.items.length - 1],
+                            {style: {paddingBottom: Math.random() * 40}},
+                          ),
                         ),
-                      ),
                     }));
                   }}
                 />
