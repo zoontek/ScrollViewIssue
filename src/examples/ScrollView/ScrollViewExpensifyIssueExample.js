@@ -46,7 +46,7 @@ exports.examples = [
                 automaticallyAdjustContentInsets={false}
                 maintainVisibleContentPosition={{
                   minIndexForVisible: 0,
-                  autoscrollToTopThreshold: 0,
+                  autoscrollToTopThreshold: 37,
                 }}>
                 {this.state.items.map(item =>
                   React.cloneElement(item, {key: item.props.msg}),
@@ -153,10 +153,29 @@ exports.examples = [
   },
 ];
 
+const getRandomColor = () =>
+  Array(3)
+    .fill(null)
+    .reduce(
+      acc =>
+        acc +
+        Math.floor(Math.random() * 255)
+          .toString(16)
+          .padStart(2, '0'),
+      '#',
+    );
+
 class Item extends React.PureComponent {
+  randomColor = getRandomColor();
+
   render() {
     return (
-      <View style={[styles.item, this.props.style]}>
+      <View
+        style={[
+          styles.item,
+          {backgroundColor: this.randomColor},
+          this.props.style,
+        ]}>
         <Text>{this.props.msg}</Text>
       </View>
     );
@@ -198,10 +217,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   item: {
-    margin: 5,
-    padding: 5,
-    backgroundColor: '#cccccc',
-    borderRadius: 3,
     minWidth: 96,
+    padding: 10,
   },
 });
